@@ -45,16 +45,23 @@
         display: flex;
     }
 	&__item { 
-        color: white;
-        transition: .5s;
-
         &:not(:last-child) {
             margin-right: 40px;
         }
+        
+    }
+    &__button {
+        color: white;
+        background: transparent;
+        transition: .5s;
+
         &:hover {
             color: #bdae82;
             cursor: pointer;
             transition: .5s;
+        }
+        &.active {
+            color: #bdae82;
         }
     }
 }
@@ -63,7 +70,7 @@
     flex: 1 1 auto;
     background: url(/img/forest.jpg) center/cover no-repeat;
     position: relative;
-
+    transition: 0.5s;
     &__button {
         position: absolute;
         top: 50%;
@@ -72,7 +79,11 @@
         width: 150px;
         height: 150px;
         background: url(/svg/play.svg) center/cover no-repeat;
-        transition: .5s;
+        transition: 1s;
+
+        &.pause {
+            background: url(/svg/pause.svg) center/cover no-repeat;
+        }
 
         &:hover {
             filter: brightness(1.5);
