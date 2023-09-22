@@ -37,6 +37,7 @@ mainButton.addEventListener('click', () => {
     if (!isPlay) {
         audioPlay();
         mainButton.classList.add('pause');
+        navButtons[activeButtonNum].classList.add('active');
     } else {
         audioPause();
         mainButton.classList.remove('pause');
