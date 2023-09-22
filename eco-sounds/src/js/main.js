@@ -8,6 +8,7 @@ const audio = new Audio();
 let isPlay = false; 
 
 let activeButtonNum = 0;
+let audioSrc = '/audio/forest.mp3';
 navButtons.forEach((button, i) => {
     button.setAttribute('data-num', i);
 
@@ -20,7 +21,7 @@ navButtons.forEach((button, i) => {
         navButtons[clickedButtonNum].classList.add('active');
         activeButtonNum = clickedButtonNum;
 
-        audio.src = `/audio/${e.target.dataset.name}.mp3`;
+        audioSrc = `/audio/${e.target.dataset.name}.mp3`;
         audioPlay();
 
         if (isPlay) {
@@ -34,10 +35,8 @@ navButtons.forEach((button, i) => {
 const mainButton = document.querySelector('.main__button');
 mainButton.addEventListener('click', () => {
     if (!isPlay) {
-        audio.src = '/audio/forest.mp3';
         audioPlay();
         mainButton.classList.add('pause');
-        navButtons[0].classList.add('active');
     } else {
         audioPause();
         mainButton.classList.remove('pause');
@@ -46,6 +45,7 @@ mainButton.addEventListener('click', () => {
 
 
 function audioPlay () {
+    audio.src = audioSrc;
     audio.currentTime = 0;
     audio.play();
     isPlay = true;
@@ -54,3 +54,4 @@ function audioPause () {
     audio.pause();
     isPlay = false;
 }
+
